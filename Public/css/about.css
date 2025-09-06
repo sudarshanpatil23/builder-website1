@@ -1,0 +1,83 @@
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      color: #333;
+      line-height: 1.6;
+    }
+    .about-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .about-section h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+    .about-section p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 18px;
+    }
+    .info, .vision, .mission {
+      background: #e5dede;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 900px;
+    }
+    .info h2, .vision h2, .mission h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .vision h2 {
+      color: #28a745;
+    }
+    .mission h2 {
+      color: #ff5722;
+    }
+    .team {
+      text-align: center;
+      margin: 60px 20px;
+    }
+    .team h2 {
+      margin-bottom: 40px;
+      color: #6f42c1;
+      font-size: 30px;
+    }
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .team-member {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .team-member:hover {
+      transform: translateY(-8px);
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #6f42c1;
+    }
+    .team-member h3 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+      color: #333;
+    }
+    .team-member p {
+      font-size: 15px;
+      color: #555;
+    }
