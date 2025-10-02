@@ -10,12 +10,17 @@ app.set("views", path.join(__dirname, "views"));
 // Static files (CSS, images, JS)
 app.use(express.static(path.join(__dirname, "public")));
 
+
 function renderPage(res, page, title) {
   ejs.renderFile(path.join(__dirname, "views/pages", `${page}.ejs`), {}, (err, str) => {
     if (err) return res.status(500).send(err.message);
     res.render("layout", { title, body: str });
   });
 }
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
 // Routes
 app.get("/", (req, res) => renderPage(res, "home", "Home Page - My Website"));
 app.get("/about", (req, res) => renderPage(res, "about", "About Us - My Website"));

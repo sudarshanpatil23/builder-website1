@@ -152,74 +152,44 @@
 
 <!--news section-->
 <section id="news">
-  <h2>Latest News</h2>
-  <p>Stay updated with our latest announcements and trends</p>
+  <h2 class="section-title">In the News</h2>
 
-  <div class="news-cards">
-    <div class="news-card">
-      <img src="images/news1.jpg" alt="News 1">
-      <h3>News Title 1</h3>
-      <p>Short description of the news goes here. Keep it concise and clear.</p>
-      <a href="#" class="btn">Read More</a>
+  <div class="news-grid">
+    <!-- Large card with slider images -->
+    <div class="news-card large">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="images/bg.jpg" alt="Slide 1"></div>
+          <div class="slide"><img src="images/blue.jpg" alt="Slide 2"></div>
+          <div class="slide"><img src="images/builder.jpg" alt="Slide 3"></div>
+          <!-- Clone for loop -->
+          <div class="slide"><img src="images/Builder.jpg" alt="Slide 1 clone"></div>
+        </div>
+      </div>
     </div>
-    <div class="news-card">
-      <img src="images/news2.jpg" alt="News 2">
-      <h3>News Title 2</h3>
-      <p>Short description of the news goes here. Keep it concise and clear.</p>
-      <a href="#" class="btn">Read More</a>
+
+    <!-- Small right top -->
+    <div class="news-card small">
+      <img src="images/card2.jpg" alt="Card 2">
     </div>
-    <div class="news-card">
-      <img src="images/news3.jpg" alt="News 3">
-      <h3>News Title 3</h3>
-      <p>Short description of the news goes here. Keep it concise and clear.</p>
-      <a href="#" class="btn">Read More</a>
+
+    <!-- Small right bottom -->
+    <div class="news-card small">
+      <img src="images/card3.jpg" alt="Card 3">
+    </div>
+
+    <!-- Full width bottom -->
+    <div class="news-card wide">
+      <img src="images/card4.jpg" alt="Card 4">
     </div>
   </div>
 </section>
 
-
-    
   </main>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
  
     <script>
-   const header = document.querySelector('header');
-const menuToggle = document.querySelector('.menu-toggle');
-const navUl = document.querySelector('nav ul');
-
-let scrollTimeout = null;
-let lastScroll = 0;
-
-// Scroll event
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-
-  // Hide navbar while scrolling
-  header.classList.add('hide');
-
-  // Background blur after 50px scroll
-  if(currentScroll > 50){
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-
-  // Clear previous timeout
-  clearTimeout(scrollTimeout);
-
-  // Show navbar after scrolling stops for 300ms
-  scrollTimeout = setTimeout(() => {
-    header.classList.remove('hide');
-  }, 300);
-
-  lastScroll = currentScroll;
-});
-
-// Mobile menu toggle
-menuToggle.addEventListener('click', () => {
-  navUl.classList.toggle('show');
-});
-
+  
 ////////////////////////////////////////////////////////////
 /* Card Slider */
 // Slider Script
@@ -264,6 +234,33 @@ sliderTabs.forEach((tab, index) => {
 });
 updateIndicator(sliderTabs[0], 0);
 window.addEventListener("resize", () => updateIndicator(sliderTabs[swiper.activeIndex], 0));
+//////////////news slider////////////// q q
+
+
+let index = 0;
+const slides = document.querySelector(".slides");
+const total = document.querySelectorAll(".slide").length;
+
+function showSlide() {
+  index++;
+  slides.style.transition = "transform 0.8s ease-in-out";
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  // When reaching the clone (last slide), reset back to first real slide
+  if (index === total - 1) {
+    setTimeout(() => {
+      slides.style.transition = "none"; // remove animation
+      index = 0; // reset index
+      slides.style.transform = `translateX(0%)`;
+    }, 800); // match transition duration
+  }
+}
+
+// autoplay every 5s
+setInterval(showSlide, 5000);
+
 </script>
+
+
 
 </body>
